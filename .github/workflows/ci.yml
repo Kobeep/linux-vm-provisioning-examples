@@ -29,7 +29,7 @@ jobs:
       - name: "Installing all packages and run libvirtd service"
         shell: bash
         run: |
-          sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils && sudo adduser `id -un` libvirtd && sudo systemctl start libvirtd && sudo systemctl enable libvirtd
+          sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils && sudo systemctl start libvirtd && sudo systemctl enable libvirtd
 
       - name: "Installing vagrant"
         shell: bash
