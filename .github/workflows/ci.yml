@@ -75,7 +75,7 @@ jobs:
       - name: "Run ansible"
         shell: bash
         run: |
-          ansible-playbook -i ./vagrant_haproxy_tcp_nginx_ansible/ansible/inventories/inventory-v1.yaml ./vagrant_haproxy_tcp_nginx_ansible/ansible/playbook-vms.yaml
+          ansible-playbook -i ./vagrant_haproxy_tcp_nginx_ansible/ansible/inventories/inventory-v1.yaml ./vagrant_haproxy_tcp_nginx_ansible/ansible/playbook-vms-v2.yaml
 
       - name: "Destroy infrastructure"
         shell: bash
