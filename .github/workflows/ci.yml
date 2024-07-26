@@ -18,7 +18,7 @@ jobs:
     steps:
     # Clean repository
       - name: 'Cleanup build folder'
-        run: ./.github/clean-runner.sh
+        run: ./vagrant_haproxy_tcp_nginx_ansible/.github/clean-runner.sh
 
       - uses: actions/checkout@v3
 
