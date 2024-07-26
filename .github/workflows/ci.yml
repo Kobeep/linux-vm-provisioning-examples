@@ -44,7 +44,8 @@ jobs:
       - name: "Run infrastructur"
         shell: bash
         run: |
-          cd ./.. | pwd && vagrant up
+          cd ../../
+          vagrant up
 
       - name: "Run ansible"
         shell: bash
