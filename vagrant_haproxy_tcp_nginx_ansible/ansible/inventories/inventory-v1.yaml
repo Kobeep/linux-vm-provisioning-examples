@@ -36,7 +36,7 @@ all:
                 loadbalancers:
                   hosts:
                     lb-web:
-                      ssh_vagrant_hostname: lb-web
+                      ssh_vagrant_hostname: web-lb
                       ansible_host: 10.0.0.11
                 dnsservers:
                   hosts:
