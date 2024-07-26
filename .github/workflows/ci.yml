@@ -32,9 +32,10 @@ jobs:
         shell: bash
         run: |
           sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+          sudo apt install -y ebtables
           sudo systemctl start libvirtd
           sudo systemctl enable libvirtd
-          sudo systemctl enable --now virtnetworkd
+          sudo setfacl -m user:$USER:rw /var/run/libvirt/libvirt-sock
 
       - name: "Installing vagrant"
         shell: bash
