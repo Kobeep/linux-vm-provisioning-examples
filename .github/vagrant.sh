@@ -12,3 +12,9 @@ sudo apt-get -y build-dep vagrant ruby-libvirt
 sudo apt-get -y install ebtables dnsmasq-base
 sudo apt-get -y install libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev
 vagrant plugin install vagrant-libvirt
+sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+sudo apt install -y ebtables
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
+sudo systemctl enable --now virtnetworkd
+sudo setfacl -m user:$USER:rw /var/run/libvirt/libvirt-sock
