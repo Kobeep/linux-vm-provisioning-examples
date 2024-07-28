@@ -16,13 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Clean repository
-      - name: 'Cleanup build folder'
-        run: ./.github/clean-runner.sh
+      - uses: actions/checkout@v4
 
       - name: "Installing vagrant"
         run: ./.github/vagrant.sh
-
 
       - name: "Installing ansible"
         shell: bash
