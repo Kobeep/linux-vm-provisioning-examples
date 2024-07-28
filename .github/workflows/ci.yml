@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: "Installing vagrant"
         run: ./.github/vagrant.sh
@@ -34,7 +34,7 @@ jobs:
       - name: "Run ansible"
         shell: bash
         run: |
-          ansible-playbook -i ./vagrant_haproxy_tcp_nginx_ansible/ansible/inventories/inventory-v1.yaml ./vagrant_haproxy_tcp_nginx_ansible/ansible/playbook-vms-v2.yaml
+          ansible-playbook -i ./vagrant_haproxy_tcp_nginx_ansible/ansible/inventories/inventory-v2.yaml ./vagrant_haproxy_tcp_nginx_ansible/ansible/playbook-vms-v2.yaml
 
       - name: "Destroy infrastructure"
         shell: bash
