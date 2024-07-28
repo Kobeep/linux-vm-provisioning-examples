@@ -26,13 +26,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         libvirt.memory = servers["ram"]
       end
       # Provisioners
-      srv.vm.provision "ansible" do |ansible|
-        ansible.playbook = "ansible/playbook-vms-v2.yaml"
-        ansible.compatibility_mode = "2.0"
-        ansible.inventory_path = "ansible/inventories/inventory-v1.yaml"
-        ansible.config_file = "ansible/ansible.cfg"
-        # ansible.raw_arguments = ["-vvv"]
-      end
+      # srv.vm.provision "ansible" do |ansible|
+      #   ansible.playbook = "ansible/playbook-vms-v2.yaml"
+      #   ansible.compatibility_mode = "2.0"
+      #   ansible.inventory_path = "ansible/inventories/inventory-v1.yaml"
+      #   ansible.config_file = "ansible/ansible.cfg"
+      #   # ansible.raw_arguments = ["-vvv"]
+      # end
     end
   end
 end
