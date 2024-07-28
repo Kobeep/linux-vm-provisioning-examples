@@ -18,54 +18,15 @@ jobs:
     steps:
     # Clean repository
       - name: 'Cleanup build folder'
-        shell: bash
-        run: |
-          ls -la ./
-          rm -rf ./* || true
-          rm -rf ./.??* || true
-          ls -la ./
-
-
-      - uses: actions/checkout@v3
-
-      - name: "Installing all packages and run libvirtd service"
-        shell: bash
-        run: |
-          sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
-          sudo apt install -y ebtables
-          sudo systemctl start libvirtd
-          sudo systemctl enable libvirtd
-          sudo setfacl -m user:$USER:rw /var/run/libvirt/libvirt-sock
+        run: ./../clean-runner.sh
 
       - name: "Installing vagrant"
-        shell: bash
-        run: |
-          wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-          echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-          sudo apt update
-          sudo apt install vagrant
-
-      - name: "Installing vagrant plugin"
-        shell: bash
-        run: |
-          sudo cp /etc/apt/sources.list /etc/apt/sources.list."$(date +"%F")"
-          sudo sed -i -e '/^# deb-src.*universe$/s/# //g' /etc/apt/sources.list
-          sudo apt-get -y update
-          sudo apt-get -y install nfs-kernel-server
-          sudo systemctl enable --now nfs-server
-          sudo apt-get -y build-dep vagrant ruby-libvirt
-          sudo apt-get -y install ebtables dnsmasq-base
-          sudo apt-get -y install libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev
-          vagrant plugin install vagrant-libvirt
+        run: ./../vagrant.sh
 
 
       - name: "Installing ansible"
         shell: bash
-        run: |
-          sudo apt install python3
-          sudo apt-add-repository ppa:ansible/ansible
-          sudo apt update
-          sudo apt install ansible
+        run: ./../ansible.sh
 
       - name: "Run infrastructure"
         shell: bash
