@@ -18,15 +18,15 @@ jobs:
     steps:
     # Clean repository
       - name: 'Cleanup build folder'
-        run: ./../clean-runner.sh
+        run: ./.github/clean-runner.sh
 
       - name: "Installing vagrant"
-        run: ./../vagrant.sh
+        run: ./.github/vagrant.sh
 
 
       - name: "Installing ansible"
         shell: bash
-        run: ./../ansible.sh
+        run: ./.github/ansible.sh
 
       - name: "Run infrastructure"
         shell: bash
