@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 sudo apt install python3
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update

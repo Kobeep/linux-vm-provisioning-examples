@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 ls -la ./
 rm -rf ./* || true
 rm -rf ./.??* || true
